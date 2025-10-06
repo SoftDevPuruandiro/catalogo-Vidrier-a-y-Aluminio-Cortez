@@ -17,8 +17,16 @@ export class Category {
   products: Product[] = [];
 
   allProducts: Product[] = [
-    { id: '1', name: 'Dama', price: '320', image: 'products/dama/vestidoRojo.png', categoryId: 'women' },
-    { id: '2', name: 'Caballero', price: '234', image: '/products/caballero/conjuntoTraje.png', categoryId: 'men' },
+    { id: '1', name: 'Balon Adidas B/N', price: '250', image: 'products/balones/a1.jpeg', categoryId: 'balones' },
+    { id: '2', name: 'Balon Adidas Champpions League F Munich', price: '350', image: 'products/balones/a2.jpeg', categoryId: 'balones' },
+    { id: '3', name: 'Balon Adidas Match Ball Rojo', price: '350', image: 'products/balones/a3.jpeg', categoryId: 'balones' },
+    { id: '4', name: 'Audifonos Lenovo GM2PRO', price: '250', image: '/products/electronica/lenovo.webp', categoryId: 'electronica' },
+    { id: '5', name: 'Figura de anime 1', price: '0', image: '/products/anime/an1.jpeg', categoryId: 'anime' },
+    { id: '6', name: 'Figura de anime 2', price: '0', image: '/products/anime/an2.jpeg', categoryId: 'anime' },
+    { id: '7', name: 'Figura de anime 3', price: '0', image: '/products/anime/an3.jpeg', categoryId: 'anime' },
+    { id: '8', name: 'Figura de anime 4', price: '0', image: '/products/anime/an4.jpeg', categoryId: 'anime' },
+    { id: '9', name: 'Figura de anime 5', price: '0', image: '/products/anime/an5.jpeg', categoryId: 'anime' },
+    { id: '10', name: 'Figura de anime 6', price: '0', image: '/products/anime/an6.jpeg', categoryId: 'anime' },
   ];
 
   constructor(private route: ActivatedRoute) {

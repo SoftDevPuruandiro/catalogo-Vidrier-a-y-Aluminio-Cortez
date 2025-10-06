@@ -1,0 +1,35 @@
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px; /* Distancia desde la parte inferior */
+    right: 40px;  /* Distancia desde la parte derecha */
+    background-color: #25d366; /* Color verde de WhatsApp */
+    color: #FFF;
+    border-radius: 50px; /* Para que sea un círculo */
+    text-align: center;
+    font-size: 30px; /* Tamaño del ícono */
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    transition: transform 0.3s ease-in-out; /* Para una animación suave */
+}
+
+/* Efecto al pasar el ratón */
+.whatsapp-float:hover {
+    transform: scale(1.1); /* Hace el botón ligeramente más grande */
+}
+
+/* Ajuste para dispositivos móviles (opcional, pero recomendado) */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+    }
+}

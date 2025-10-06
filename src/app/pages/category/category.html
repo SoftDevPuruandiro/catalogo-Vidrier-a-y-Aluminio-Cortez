@@ -1,12 +1,25 @@
 <app-navbar></app-navbar>
-<div class="container">
+<div class="container mt-4">
   <div class="row">
     <div class="col-md-4" *ngFor="let product of products">
       <div class="card mb-4 shadow-sm">
         <img [src]="product.image" class="card-img-top" alt="{{ product.name }}">
         <div class="card-body text-center">
           <h5 class="card-title">{{ product.name }}</h5>
-          <h6 class="card-price">{{ product.price | currency}}</h6>
+          <h6 class="card-price">
+            {{ product.price != '0' ? (product.price | currency) : '' }}
+          </h6>
+
+          <!-- BOTÓN DE WHATSAPP ADAPTADO -->
+          <a [href]="'https://wa.me/5214437937947?text=Hola,%20me%20interesa%20' + product.name"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="btn btn-success d-inline-flex align-items-center justify-content-center mt-3 px-3 py-2 rounded-pill shadow-sm">
+            <i class="fab fa-whatsapp me-2 fs-5"></i>
+            Contactar por WhatsApp
+          </a>
+          <!-- FIN BOTÓN DE WHATSAPP -->
+
         </div>
       </div>
     </div>

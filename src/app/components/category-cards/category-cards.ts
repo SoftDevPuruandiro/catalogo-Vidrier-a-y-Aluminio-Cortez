@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-category-cards',
-  standalone: true, // ✅ necesario
+  standalone: true,
   imports: [RouterModule, CommonModule],
   templateUrl: './category-cards.html',
   styleUrls: ['./category-cards.scss']
@@ -13,14 +13,19 @@ import { CommonModule } from '@angular/common';
 export class CategoryCards {
   categories: Category[] = [
     {
-      id: 'women',
-      name: 'Dama',
-      image: '/categories/women.png'
+      id: 'balones',
+      name: 'Mini Balones',
+      image: '/categories/balones.jpeg'
     },
     {
-      id: 'men',
-      name: 'Caballero',
-      image: '/categories/men.png'
+      id: 'electronica',
+      name: 'Electrónica',
+      image: '/categories/electronica.webp'
+    },
+    {
+      id: 'anime',
+      name: 'Anime',
+      image: '/categories/anime.jpeg'
     }
   ];
 }
