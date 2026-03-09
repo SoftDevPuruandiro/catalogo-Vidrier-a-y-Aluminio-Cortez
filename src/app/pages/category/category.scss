@@ -1,20 +1,26 @@
 .product-img-fixed {
-  height: 300px;       /* Altura uniforme para todos los productos */
-  object-fit: cover;   /* Esto evita que la imagen se estire feo; la recorta al centro */
+  height: 300px;
+  object-fit: cover;
   object-position: center;
   background-color: #eee;
 }
 
-.carousel-item {
-  transition: transform 0.6s ease-in-out;
+.img-pointer {
+  cursor: zoom-in;
 }
 
-.card {
+.img-full-view {
+  max-height: 80vh; // Para que no se salga de la pantalla
+  object-fit: contain; // Muestra la imagen completa sin recortes
+  background-color: #000;
+}
+
+.shadow-icon {
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.8));
+}
+
+// Estilo para el modal oscuro
+.modal-content {
   border-radius: 15px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-  }
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }

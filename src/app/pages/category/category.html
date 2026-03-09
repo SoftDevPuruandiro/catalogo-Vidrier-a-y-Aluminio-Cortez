@@ -12,16 +12,20 @@
             <div *ngFor="let img of product.images; let first = first" 
                  [class.active]="first" 
                  class="carousel-item">
-              <img [src]="img" class="d-block w-100 product-img-fixed" [alt]="product.name">
+              <img [src]="img" 
+                   class="d-block w-100 product-img-fixed img-pointer" 
+                   (click)="openZoom(product)"
+                   data-bs-toggle="modal" 
+                   data-bs-target="#imageZoomModal">
             </div>
           </div>
           
           <ng-container *ngIf="product.images.length > 1">
             <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselProduct' + i" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
+              <span class="carousel-control-prev-icon shadow-icon"></span>
             </button>
             <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselProduct' + i" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
+              <span class="carousel-control-next-icon shadow-icon"></span>
             </button>
           </ng-container>
         </div>
@@ -31,10 +35,8 @@
           <h6 class="text-primary mb-3">
             {{ product.price !== '0' ? (product.price | currency) : 'Precio bajo medidas' }}
           </h6>
-          
           <a [href]="'https://wa.me/5214437937947?text=Hola,%20me%20interesa%20la%20' + product.name"
-             target="_blank"
-             class="btn btn-success mt-auto rounded-pill py-2">
+             target="_blank" class="btn btn-success mt-auto rounded-pill py-2">
             <i class="fab fa-whatsapp me-2"></i> Cotizar ahora
           </a>
         </div>
@@ -42,3 +44,38 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="imageZoomModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark border-0">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title text-white small">{{ selectedProduct?.name }}</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-2">
+        
+        <div *ngIf="selectedProduct" id="carouselModal" class="carousel slide" data-bs-ride="false">
+          <div class="carousel-inner">
+            <div *ngFor="let img of selectedProduct.images; let isFirst = first" 
+                 class="carousel-item" 
+                 [class.active]="isFirst">
+              <img [src]="img" class="d-block w-100 img-full-view" [alt]="selectedProduct.name">
+            </div>
+          </div>
+
+          <ng-container *ngIf="selectedProduct.images.length > 1">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselModal" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselModal" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </ng-container>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
