@@ -1,25 +1,42 @@
 <app-navbar></app-navbar>
-<div class="container mt-4">
+
+<div class="container mt-5">
+  <h2 class="text-capitalize mb-4 fw-bold text-center">Catálogo de {{ categoryId }}</h2>
+  
   <div class="row">
-    <div class="col-md-4" *ngFor="let product of products">
-      <div class="card mb-4 shadow-sm">
-        <img [src]="product.image" class="card-img-top" alt="{{ product.name }}">
-        <div class="card-body text-center">
-          <h5 class="card-title">{{ product.name }}</h5>
-          <h6 class="card-price">
-            {{ product.price != '0' ? (product.price | currency) : '' }}
+    <div class="col-md-4 mb-4" *ngFor="let product of products; let i = index">
+      <div class="card h-100 shadow-sm border-0">
+        
+        <div [id]="'carouselProduct' + i" class="carousel slide" data-bs-ride="false">
+          <div class="carousel-inner">
+            <div *ngFor="let img of product.images; let first = first" 
+                 [class.active]="first" 
+                 class="carousel-item">
+              <img [src]="img" class="d-block w-100 product-img-fixed" [alt]="product.name">
+            </div>
+          </div>
+          
+          <ng-container *ngIf="product.images.length > 1">
+            <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselProduct' + i" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselProduct' + i" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </ng-container>
+        </div>
+
+        <div class="card-body d-flex flex-column text-center">
+          <h5 class="card-title fw-bold">{{ product.name }}</h5>
+          <h6 class="text-primary mb-3">
+            {{ product.price !== '0' ? (product.price | currency) : 'Precio bajo medidas' }}
           </h6>
-
-          <!-- BOTÓN DE WHATSAPP ADAPTADO -->
-          <a [href]="'https://wa.me/5214437937947?text=Hola,%20me%20interesa%20' + product.name"
+          
+          <a [href]="'https://wa.me/5214437937947?text=Hola,%20me%20interesa%20la%20' + product.name"
              target="_blank"
-             rel="noopener noreferrer"
-             class="btn btn-success d-inline-flex align-items-center justify-content-center mt-3 px-3 py-2 rounded-pill shadow-sm">
-            <i class="fab fa-whatsapp me-2 fs-5"></i>
-            Contactar por WhatsApp
+             class="btn btn-success mt-auto rounded-pill py-2">
+            <i class="fab fa-whatsapp me-2"></i> Cotizar ahora
           </a>
-          <!-- FIN BOTÓN DE WHATSAPP -->
-
         </div>
       </div>
     </div>

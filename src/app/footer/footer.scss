@@ -1,0 +1,39 @@
+.footer-bg {
+  background-color: #0f1113;
+  border-top: 2px solid rgba(13, 202, 240, 0.2);
+}
+
+.letter-spacing {
+  letter-spacing: 1.5px;
+}
+
+.x-small {
+  font-size: 0.75rem;
+}
+
+.softdev-tag {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(13, 202, 240, 0.1); // Un fondo azul muy tenue
+  border: 1px solid rgba(13, 202, 240, 0.2);
+  transition: all 0.3s ease;
+  display: inline-block;
+
+  strong {
+    font-weight: 800;
+  }
+
+  &:hover {
+    background: rgba(13, 202, 240, 0.25);
+    color: #0dcaf0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+}
+
+.hover-info:hover {
+  color: #0dcaf0 !important;
+}

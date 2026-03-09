@@ -1,0 +1,20 @@
+.product-img-fixed {
+  height: 300px;       /* Altura uniforme para todos los productos */
+  object-fit: cover;   /* Esto evita que la imagen se estire feo; la recorta al centro */
+  object-position: center;
+  background-color: #eee;
+}
+
+.carousel-item {
+  transition: transform 0.6s ease-in-out;
+}
+
+.card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+}

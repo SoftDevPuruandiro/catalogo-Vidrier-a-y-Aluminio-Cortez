@@ -10,5 +10,5 @@ import { Footer } from './footer/footer';
   styleUrls: ['./app.scss']
 })
 export class App {
-  protected readonly title = signal('catalogo');
+  protected readonly title = signal('Vidriería y Aluminio Cortez');
 }

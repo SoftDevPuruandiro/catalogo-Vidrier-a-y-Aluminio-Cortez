@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "catalogo": {
+    "vidrieria-cortez": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "catalogo:build:production"
+              "buildTarget": "vidrieria-cortez:build:production"
             },
             "development": {
-              "buildTarget": "catalogo:build:development"
+              "buildTarget": "vidrieria-cortez:build:development"
             }
           },
           "defaultConfiguration": "development"

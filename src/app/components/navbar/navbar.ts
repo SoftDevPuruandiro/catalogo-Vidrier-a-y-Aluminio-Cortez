@@ -12,8 +12,8 @@ import { CommonModule } from '@angular/common';
 })
 export class Navbar {
   categories: Category[] = [
-    { id: 'balones', name: 'Mini Balones', image: '' },
-    { id: 'electronica', name: 'Electrónica', image: '' },
-    { id: 'anime', name: 'Anime', image: '' },
+    { id: 'puertas', name: 'Puertas', image: '' },
+    { id: 'ventanas', name: 'Ventanas', image: '' },
+    { id: 'canceles', name: 'Canceles', image: '' },
   ];
 }

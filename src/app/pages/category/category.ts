@@ -1,9 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from '../../models/product';
 import { Navbar } from "../../components/navbar/navbar";
 import { Footer } from "../../footer/footer";
+
+interface Product {
+  id: string;
+  name: string;
+  price: string;
+  images: string[];
+  categoryId: string;
+}
 
 @Component({
   selector: 'app-category',
@@ -12,27 +19,42 @@ import { Footer } from "../../footer/footer";
   templateUrl: './category.html',
   styleUrls: ['./category.scss']
 })
-export class Category {
+export class Category implements OnInit {
   categoryId: string = '';
   products: Product[] = [];
 
+  // Estructura según tus indicaciones exactas:
   allProducts: Product[] = [
-    { id: '1', name: 'Balon Adidas B/N', price: '250', image: 'products/balones/a1.jpeg', categoryId: 'balones' },
-    { id: '2', name: 'Balon Adidas Champpions League F Munich', price: '350', image: 'products/balones/a2.jpeg', categoryId: 'balones' },
-    { id: '3', name: 'Balon Adidas Match Ball Rojo', price: '350', image: 'products/balones/a3.jpeg', categoryId: 'balones' },
-    { id: '4', name: 'Audifonos Lenovo GM2PRO', price: '250', image: '/products/electronica/lenovo.webp', categoryId: 'electronica' },
-    { id: '5', name: 'Figura de anime 1', price: '0', image: '/products/anime/an1.jpeg', categoryId: 'anime' },
-    { id: '6', name: 'Figura de anime 2', price: '0', image: '/products/anime/an2.jpeg', categoryId: 'anime' },
-    { id: '7', name: 'Figura de anime 3', price: '0', image: '/products/anime/an3.jpeg', categoryId: 'anime' },
-    { id: '8', name: 'Figura de anime 4', price: '0', image: '/products/anime/an4.jpeg', categoryId: 'anime' },
-    { id: '9', name: 'Figura de anime 5', price: '0', image: '/products/anime/an5.jpeg', categoryId: 'anime' },
-    { id: '10', name: 'Figura de anime 6', price: '0', image: '/products/anime/an6.jpeg', categoryId: 'anime' },
+    // --- PUERTAS: 8 carpetas, la 5 tiene 2 imágenes ---
+    { id: '1', name: 'Puerta 1', price: '0', images: ['/products/puertas/1/1.webp'], categoryId: 'puertas' },
+    { id: '2', name: 'Puerta 2', price: '0', images: ['/products/puertas/2/1.webp'], categoryId: 'puertas' },
+    { id: '3', name: 'Puerta 3', price: '0', images: ['/products/puertas/3/1.webp'], categoryId: 'puertas' },
+    { id: '4', name: 'Puerta 4', price: '0', images: ['/products/puertas/4/1.webp'], categoryId: 'puertas' },
+    { id: '5', name: 'Puerta 5', price: '0', images: ['/products/puertas/5/1.webp', '/products/puertas/5/2.webp'], categoryId: 'puertas' },
+    { id: '6', name: 'Puerta 6', price: '0', images: ['/products/puertas/6/1.webp'], categoryId: 'puertas' },
+    { id: '7', name: 'Puerta 7', price: '0', images: ['/products/puertas/7/1.webp'], categoryId: 'puertas' },
+    { id: '8', name: 'Puerta 8', price: '0', images: ['/products/puertas/8/1.webp'], categoryId: 'puertas' },
+
+    // --- VENTANAS: 6 carpetas, 1 imagen cada una ---
+    { id: '1', name: 'Ventana 1', price: '0', images: ['/products/ventanas/1/1.webp'], categoryId: 'ventanas' },
+    { id: '2', name: 'Ventana 2', price: '0', images: ['/products/ventanas/2/1.webp'], categoryId: 'ventanas' },
+    { id: '3', name: 'Ventana 3', price: '0', images: ['/products/ventanas/3/1.webp'], categoryId: 'ventanas' },
+    { id: '4', name: 'Ventana 4', price: '0', images: ['/products/ventanas/4/1.webp'], categoryId: 'ventanas' },
+    { id: '5', name: 'Ventana 5', price: '0', images: ['/products/ventanas/5/1.webp'], categoryId: 'ventanas' },
+    { id: '6', name: 'Ventana 6', price: '0', images: ['/products/ventanas/6/1.webp'], categoryId: 'ventanas' },
+
+    // --- CANCELES: Carpeta 1 con 2 imágenes ---
+    { id: '1', name: 'Cancel 1', price: '0', images: ['/products/canceles/1/1.webp', '/products/canceles/1/2.webp'], categoryId: 'canceles' },
+    
+    // --- DOMOS ---
+    // { id: '1', name: 'Domo 1', price: '1500', images: ['/products/domos/1/1.webp'], categoryId: 'domos' }
   ];
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.categoryId = params['id'];
-      console.log(this.categoryId)
       this.products = this.allProducts.filter(p => p.categoryId === this.categoryId);
     });
   }
