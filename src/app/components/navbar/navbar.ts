@@ -13,7 +13,28 @@ import { CommonModule } from '@angular/common';
 export class Navbar {
   categories: Category[] = [
     { id: 'puertas', name: 'Puertas', image: '' },
+    { id: 'puertas_banos', name: 'Puertas para baño', image: '' },
+    { id: 'puertas_corredizas', name: 'Puertas corredizas', image: '' },
     { id: 'ventanas', name: 'Ventanas', image: '' },
-    { id: 'canceles', name: 'Canceles', image: '' },
+    { id: 'ventanas_banos', name: 'Ventanas para baño', image: '' },
+    { id: 'canceleria', name: 'Cancelería', image: '' },
+    { id: 'canceleria_banos', name: 'Cancelería para baño', image: '' },
+    { id: 'barandales', name: 'Barandales', image: '' },
+    { id: 'vitrinas', name: 'Vitrinas', image: '' },
+    // { id: '', name: '', image: '' },
+    // { id: '', name: '', image: '' },
+    // { id: '', name: '', image: '' },
+    // { id: '', name: '', image: '' },
+    // { id: '', name: '', image: '' },
   ];
+
+  onCategoryClick(navbarNav: HTMLElement) {
+    navbarNav.classList.remove('show');
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
 }

@@ -1,35 +1,60 @@
+nav.navbar {
+    background-color: rgba(211, 211, 211, 0.80) !important;
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Estilo base de los links */
+.nav-link.custom-link {
+    padding: 10px 20px !important;
+    border-radius: 8px; /* Bordes redondeados para que la sombra luzca mejor */
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555 !important;
+}
+
+/* --- ESTADO ACTIVO (Donde estamos) --- */
+.active-link {
+    color: #0d6efd !important; /* Color principal */
+    font-weight: 700;
+    background-color: #f8f9fa; /* Fondo ligeramente gris para resaltar la sombra */
+    /* Sombra interna sutil para indicar profundidad */
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1); 
+    /* Línea de acento inferior opcional */
+    border-bottom: 2px solid #0d6efd;
+}
+
+/* Efecto hover (distinto al active) */
+.nav-link.custom-link:hover:not(.active-link) {
+    background-color: #f1f1f1;
+    color: #000 !important;
+}
+
+/* Ajuste para el botón de WhatsApp (Sombra exterior) */
 .whatsapp-float {
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 40px; /* Distancia desde la parte inferior */
-    right: 40px;  /* Distancia desde la parte derecha */
-    background-color: #25d366; /* Color verde de WhatsApp */
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
     color: #FFF;
-    border-radius: 50px; /* Para que sea un círculo */
-    text-align: center;
-    font-size: 30px; /* Tamaño del ícono */
-    box-shadow: 2px 2px 3px #999;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    transition: transform 0.3s ease-in-out; /* Para una animación suave */
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-/* Efecto al pasar el ratón */
 .whatsapp-float:hover {
-    transform: scale(1.1); /* Hace el botón ligeramente más grande */
-}
-
-/* Ajuste para dispositivos móviles (opcional, pero recomendado) */
-@media (max-width: 768px) {
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
-        font-size: 25px;
-    }
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
 }

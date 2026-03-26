@@ -18,9 +18,13 @@ interface Category {
 })
 export class CategoryCards {
   categories: Category[] = [
-    { id: 'puertas', name: 'Puertas', image: '/categories/puertas.jpg' },
+    { id: 'puertas', name: 'Puertas', image: '/categories/puertas.webp' },
+    { id: 'puertas_banos', name: 'Puertas para baño', image: '/categories/puertas_banos.webp' },
+    { id: 'puertas_corredizas', name: 'Puertas corredizas', image: '/categories/puertas_corredizas.webp' },
     { id: 'ventanas', name: 'Ventanas', image: '/categories/ventanas.webp' },
-    { id: 'canceles', name: 'Canceles', image: '/categories/canceles.webp' },
-    // { id: 'balones', name: 'Balones', image: '/categories/baklones.jpg' } // Ejemplo extra
+    { id: 'ventanas_banos', name: 'Ventanas para baño', image: '/categories/ventanas_banos.webp' },
+    { id: 'canceleria', name: 'Cancelería', image: '/categories/canceleria.webp' },
+    { id: 'canceleria_banos', name: 'Cancelería para baño', image: '/categories/canceleria_bano.webp' },
+    { id: 'barandales', name: 'Barandales', image: '/categories/barandales.webp' },
   ];
 }
